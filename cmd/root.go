@@ -56,7 +56,7 @@ var rootCmd = &cobra.Command{
 var buildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "build",
-	Long:  `Builds a jcink xml skin from a set of files`,
+	Long:  `Builds a jcink xml theme from a set of files`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		output, err := theme.Construct(name, stylesheet, wrapper, macros, templates)

@@ -14,9 +14,9 @@ import (
 
 // JcinkXML is an XML file used by jcink
 type JcinkXML struct {
-	XMLName    xml.Name `xml:"skin"`
+	XMLName    xml.Name `xml:"theme"`
 	Text       string   `xml:",chardata"`
-	Skinname   string   `xml:"skinname"`
+	themename  string   `xml:"themename"`
 	Date       string   `xml:"date"`
 	Stylesheet string   `xml:"stylesheet"`
 	Wrappers   string   `xml:"wrappers"`
@@ -37,13 +37,13 @@ type Item struct {
 	Name string `xml:"name,attr"`
 }
 
-// Construct returns a []byte of a skin XML file
+// Construct returns a []byte of a theme XML file
 func Construct(name string, stylesheet string, wrapper string, macroFolder string, templateFolder string) (*string, error) {
 	timestamp := time.Now().Format("Monday 2 of Jan 2006 15:04:05 PM")
 
 	output := &JcinkXML{
-		Skinname: name,
-		Date:     timestamp,
+		themename: name,
+		Date:      timestamp,
 	}
 
 	// Stylesheet
@@ -143,19 +143,19 @@ func listDirectory(dir string) ([]string, error) {
 	return files, nil
 }
 
-// Read reads a skin file in
+// Read reads a theme file in
 func Read(filename string) error {
-	skin := &JcinkXML{}
+	theme := &JcinkXML{}
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return err
 	}
-	err = xml.Unmarshal(data, skin)
+	err = xml.Unmarshal(data, theme)
 	if err != nil {
 		return err
 	}
 
-	for _, template := range skin.Templates.Item {
+	for _, template := range theme.Templates.Item {
 		fmt.Println(template.Name)
 	}
 
