@@ -16,7 +16,7 @@ import (
 type JcinkXML struct {
 	XMLName    xml.Name `xml:"theme"`
 	Text       string   `xml:",chardata"`
-	themename  string   `xml:"themename"`
+	ThemeName  string   `xml:"skinname"`
 	Date       string   `xml:"date"`
 	Stylesheet string   `xml:"stylesheet"`
 	Wrappers   string   `xml:"wrappers"`
@@ -42,7 +42,7 @@ func Construct(name string, stylesheet string, wrapper string, macroFolder strin
 	timestamp := time.Now().Format("Monday 2 of Jan 2006 15:04:05 PM")
 
 	output := &JcinkXML{
-		themename: name,
+		ThemeName: name,
 		Date:      timestamp,
 	}
 
