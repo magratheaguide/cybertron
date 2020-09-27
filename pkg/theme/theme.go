@@ -86,6 +86,9 @@ func Construct(name string, stylesheet string, wrapper string, macroFolder strin
 	output.Templates.Item = templates
 
 	data, err := xml.MarshalIndent(output, "	", "	")
+	if err != nil {
+		return nil, err
+	}
 
 	fixQuotes := regexp.MustCompile(`<item name=("(.+)")>`)
 	data = fixQuotes.ReplaceAll(data, []byte(`<item name='$2'>`))
