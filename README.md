@@ -39,7 +39,7 @@ macros/
 wrapper.html
 ```
 
-* Note that folder and file names are Cybertron defaults and may be configured, with the exception of the template and macro file names (marked with a trailing asterisk above). Those come from the conventions used in Jcink's own XML for imports and exports and must match exactly.
+Note that folder and file names are Cybertron defaults and may be configured, with the exception of the template and macro file names (marked with a trailing asterisk above). Those come from the conventions used in Jcink's own XML for imports and exports and **must match exactly.**
 
 For the [list of available macro keys and their descriptions](https://jcink.com/main/wiki/jfb-skinning-macros), see the Jcink documentation.
 
