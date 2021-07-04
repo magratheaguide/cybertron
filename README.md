@@ -17,29 +17,29 @@ There are 4 components that make up a Jcink theme:
 
 Your folders and files should be structured and named as follows:
 
-```markdown
+```
 assets/
     stylesheet.css
 html-templates/
-    **board_stats.html**
-    **cat_head.html**
-    **forum_row.html**
-    **profile.html**
-    **memberlist_head.html**
-    **memberlist_row.html**
-    **mini_profile.html**
-    **post_row.html**
-    **redirect_row.html**
-    **subf_head.html**
-    **topic_list_head.html**
-    **topic_row.html**
+    board_stats.html*
+    cat_head.html*
+    forum_row.html*
+    profile.html*
+    memberlist_head.html*
+    memberlist_row.html*
+    mini_profile.html*
+    post_row.html*
+    redirect_row.html*
+    subf_head.html*
+    topic_list_head.html*
+    topic_row.html*
 macros/
-    **<MACRO_KEY>.html**
+    <MACRO_KEY>.html*
     ...
 wrapper.html
 ```
 
-Note that folder and file names are Cybertron defaults and may be configured, with the exception of the template and macro file names (shown in bold above). Those come from the conventions used in Jcink's own XML for imports and exports and must match exactly.
+* Note that folder and file names are Cybertron defaults and may be configured, with the exception of the template and macro file names (marked with a trailing asterisk above). Those come from the conventions used in Jcink's own XML for imports and exports and must match exactly.
 
 For the [list of available macro keys and their descriptions](https://jcink.com/main/wiki/jfb-skinning-macros), see the Jcink documentation.
 
