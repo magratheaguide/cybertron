@@ -19,6 +19,8 @@ test:
 	$(GOCMD) vet ./... 2> govet-report.out
 	$(GOCMD) tool cover -html=coverage.txt -o cover-report.html
 	printf "\nCoverage report available at cover-report.html\n\n"
+theme-test-build:
+	go run main.go  build -d test_data/ -o test_data/ -v 10 -n "Test Theme"
 tidy:
 	$(GOCMD) mod tidy
 clean:

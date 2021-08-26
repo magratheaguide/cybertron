@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
@@ -64,8 +65,8 @@ var buildCmd = &cobra.Command{
 
 		config := theme.Config{
 			Name:           name,
-			StylesSheet:    stylesheet,
-			Wrapper:        wrapper,
+			StylesSheet:    filepath.Join(rootDir, stylesheet),
+			Wrapper:        filepath.Join(rootDir, wrapper),
 			MacroFolder:    macros,
 			TemplateFolder: templates,
 			RootDir:        rootDir,
