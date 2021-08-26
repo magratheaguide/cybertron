@@ -162,6 +162,10 @@ func listDirectory(dir string) ([]string, error) {
 	var files []string
 
 	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
+		if info == nil {
+			klog.Warningf("%s dir is empty", dir)
+			return nil
+		}
 		if !info.IsDir() {
 			files = append(files, path)
 		}
