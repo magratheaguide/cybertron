@@ -8,8 +8,10 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 	"time"
 
+	"github.com/thoas/go-funk"
 	"k8s.io/klog"
 )
 
@@ -71,11 +73,12 @@ func (c Config) Construct() (*string, error) {
 	}
 	output.Wrappers = wrapperString
 
-	// Macros
-	macroFiles, err := c.listDirectory(c.MacroFolder)
+	// Get Macros
+	macroFiles, err := c.getMacroFiles()
 	if err != nil {
 		return nil, err
 	}
+
 	macroOverrides, err := c.buildItems(macroFiles)
 	if err != nil {
 		return nil, err
@@ -84,16 +87,18 @@ func (c Config) Construct() (*string, error) {
 	output.Macros.Item = macros
 
 	// Templates
-	templateFiles, err := c.listDirectory(c.TemplateFolder)
+	templateFiles, err := c.getTemplateFiles()
 	if err != nil {
 		return nil, err
 	}
+
 	templates, err := c.buildItems(templateFiles)
 	if err != nil {
 		return nil, err
 	}
 	output.Templates.Item = templates
 
+	// marshal the xml file
 	data, err := xml.MarshalIndent(output, "	", "	")
 	if err != nil {
 		return nil, err
@@ -104,6 +109,45 @@ func (c Config) Construct() (*string, error) {
 
 	out := fmt.Sprintf("%s%s", xml.Header, html.UnescapeString(string(data)))
 	return &out, nil
+}
+
+func (c Config) getMacroFiles() ([]string, error) {
+	finalMacroList := []string{}
+	macroFiles, err := c.listDirectory(c.MacroFolder)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, macroFile := range macroFiles {
+		macroName := strings.Replace(filepath.Base(macroFile), filepath.Ext(macroFile), "", 1)
+
+		if !funk.Contains(allowedMacros, macroName) {
+			klog.Errorf("skipping non-allowed macro: %s", macroName)
+			continue
+		}
+
+		finalMacroList = append(finalMacroList, macroFile)
+	}
+
+	return finalMacroList, nil
+}
+
+func (c Config) getTemplateFiles() ([]string, error) {
+	finalTemplateList := []string{}
+	templateFiles, err := c.listDirectory(c.TemplateFolder)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, templateFile := range templateFiles {
+		if !funk.Contains(allowedHTMLTemplates, filepath.Base(templateFile)) {
+			klog.Errorf("skipping non-allowed HTML template: %s", filepath.Base(templateFile))
+			continue
+		}
+		finalTemplateList = append(finalTemplateList, templateFile)
+	}
+
+	return finalTemplateList, nil
 }
 
 // buildItems returns a list of items from a list of files
