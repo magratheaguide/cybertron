@@ -38,17 +38,26 @@ type Item struct {
 	Name string `xml:"name,attr"`
 }
 
+type Config struct {
+	Name           string
+	Wrapper        string
+	MacroFolder    string
+	TemplateFolder string
+	StylesSheet    string
+	RootDir        string
+}
+
 // Construct returns a []byte of a theme XML file
-func Construct(name string, stylesheet string, wrapper string, macroFolder string, templateFolder string) (*string, error) {
+func (c Config) Construct() (*string, error) {
 	timestamp := time.Now().Format("Monday 2 of Jan 2006 15:04:05 PM")
 
 	output := &JcinkXML{
-		ThemeName: name,
+		ThemeName: c.Name,
 		Date:      timestamp,
 	}
 
 	// Stylesheet
-	stylesheetString, err := getFileString(stylesheet)
+	stylesheetString, err := c.getFileString(c.StylesSheet)
 	if err != nil {
 		return nil, err
 	}
@@ -56,18 +65,18 @@ func Construct(name string, stylesheet string, wrapper string, macroFolder strin
 	output.Stylesheet = fmt.Sprintf("\n%s\n%s\n", stylesheetString, ".post1 {} /* this is required to pass JCINK upload validation */")
 
 	// Wrapper
-	wrapperString, err := getFileString(wrapper)
+	wrapperString, err := c.getFileString(c.Wrapper)
 	if err != nil {
 		return nil, err
 	}
 	output.Wrappers = wrapperString
 
 	// Macros
-	macroFiles, err := listDirectory(macroFolder)
+	macroFiles, err := c.listDirectory(c.MacroFolder)
 	if err != nil {
 		return nil, err
 	}
-	macroOverrides, err := buildItems(macroFiles)
+	macroOverrides, err := c.buildItems(macroFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -75,11 +84,11 @@ func Construct(name string, stylesheet string, wrapper string, macroFolder strin
 	output.Macros.Item = macros
 
 	// Templates
-	templateFiles, err := listDirectory(templateFolder)
+	templateFiles, err := c.listDirectory(c.TemplateFolder)
 	if err != nil {
 		return nil, err
 	}
-	templates, err := buildItems(templateFiles)
+	templates, err := c.buildItems(templateFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -98,10 +107,10 @@ func Construct(name string, stylesheet string, wrapper string, macroFolder strin
 }
 
 // buildItems returns a list of items from a list of files
-func buildItems(files []string) ([]Item, error) {
+func (c Config) buildItems(files []string) ([]Item, error) {
 	items := []Item{}
 	for _, file := range files {
-		fileString, err := getFileString(file)
+		fileString, err := c.getFileString(file)
 		if err != nil {
 			klog.Error(err)
 			continue
@@ -149,8 +158,9 @@ func getPlainFilename(fullname string) string {
 }
 
 // GetFileString reads a file into a string
-func getFileString(filename string) (string, error) {
-	data, err := ioutil.ReadFile(filename)
+func (c Config) getFileString(filename string) (string, error) {
+	file := filepath.Join(c.RootDir, filename)
+	data, err := ioutil.ReadFile(file)
 	if err != nil {
 		return "", err
 	}
@@ -158,16 +168,14 @@ func getFileString(filename string) (string, error) {
 }
 
 // listDirectory lists all of the files in a directory
-func listDirectory(dir string) ([]string, error) {
+func (c Config) listDirectory(dir string) ([]string, error) {
 	var files []string
+	path := filepath.Join(c.RootDir, dir)
 
-	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 		if info == nil {
-			klog.Warningf("%s dir is empty", dir)
+			klog.Warningf("%s is empty", path)
 			return nil
-		}
-		if !info.IsDir() {
-			files = append(files, path)
 		}
 		return nil
 	})

@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+    <head> 
+	<title><% TITLE %></title> 
+	<% CSS %> 
+	<% JAVASCRIPT %> 
+    </head> 
+    <body>
+	<div id="wrapper">
+	    <div id="logo">
+		<a href="index.php"><{LOGO}></a>
+		<div id="searchbar">
+		    <div class="search-container">
+			<form action="index.php?act=Search&amp;CODE=01" method="post">
+				<input type="hidden" name="forums" value="all">
+				<input type="text" name="keywords" class="search-input" onfocus="this.value=''" value="Search...">
+				<input type="submit" class="search-button">
+		        </form>
+		    </div>
+		</div>
+	    </div>
+	    <% BOARD HEADER %>
+	    <div id="innerwrapper"> 
+	    	<div id="navi">
+		    <% NAVIGATION %>
+	    	</div>
+	    	<% DSHOUTBOX %> 
+	    	<% BOARD %> 
+	    	<div id="skin_selector">
+	    	    <% SKIN_SELECTOR %>
+	    	</div>
+	    	<% COPYRIGHT %>
+	    	<script>$('#logo a img[src="style_images/1/spacer.gif"]').replaceWith('<!-- |board_name| -->');</script>
+	    </div>
+	</div>
+    </body> 
+</html>
