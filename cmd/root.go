@@ -33,14 +33,13 @@ func init() {
 	buildCmd.PersistentFlags().StringVarP(&macros, "macros-folder", "m", "macros", "The folder with the macros in it.")
 	buildCmd.PersistentFlags().StringVarP(&templates, "templates-folder", "t", "html-templates", "The folder with the templates in it.")
 	buildCmd.PersistentFlags().StringVarP(&rootDir, "directory", "d", "./", "Where to run cybertron. Defaults to current directory.")
-	buildCmd.PersistentFlags().StringVarP(&outputDir, "output-dir", "o", "./", "Directory to output the theme xml file to.")
+	buildCmd.PersistentFlags().StringVarP(&outputDir, "output-directory", "o", "./", "Directory to output the theme xml file to.")
 
 	rootCmd.AddCommand(readCmd)
 	readCmd.PersistentFlags().StringVarP(&inputFile, "input-file", "f", "", "The file to input")
 
 	klog.InitFlags(nil)
-	flag.Parse()
-	pflag.CommandLine.AddGoFlagSet(flag.CommandLine)
+	pflag.CommandLine.AddGoFlag(flag.CommandLine.Lookup("v"))
 }
 
 var rootCmd = &cobra.Command{
