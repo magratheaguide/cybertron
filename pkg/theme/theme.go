@@ -172,11 +172,17 @@ func (c Config) listDirectory(dir string) ([]string, error) {
 	var files []string
 	path := filepath.Join(c.RootDir, dir)
 
+	klog.V(8).Infof("reading directory: %s", path)
 	err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 		if info == nil {
 			klog.Warningf("%s is empty", path)
 			return nil
 		}
+		if !info.IsDir() {
+			klog.V(8).Infof("found files: %v", files)
+			files = append(files, path)
+		}
+
 		return nil
 	})
 	if err != nil {
