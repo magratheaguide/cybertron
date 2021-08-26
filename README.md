@@ -50,3 +50,16 @@ cybertron build --name "MyTheme"
 ```
 
 This will output the `MyTheme.xml` file that can be uploaded as a full Jcink "skin set."
+
+
+## Installation
+
+### OSX
+
+You can find the latest release [on the releases page](https://github.com/rp-magrathea/cybertron/releases/latest)
+
+Download the latest binary for Darwin. Move that to somewhere in in your PATH. Likely `/usr/local/bin` is a safe choice.
+
+### Windows
+
+Download the latest .exe file from the [releases page](https://github.com/rp-magrathea/cybertron/releases/latest). Run it from there and use the `-d` and `-o` flags.

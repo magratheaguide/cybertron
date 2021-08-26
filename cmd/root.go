@@ -21,22 +21,25 @@ var (
 	wrapper       string
 	macros        string
 	templates     string
+	rootDir       string
+	outputDir     string
 )
 
 func init() {
 	rootCmd.AddCommand(buildCmd)
-	buildCmd.PersistentFlags().StringVarP(&name, "name", "n", "theme", "The name of the theme")
-	buildCmd.PersistentFlags().StringVarP(&stylesheet, "stylesheet", "s", "assets/stylesheet.css", "The location of the stylesheet")
-	buildCmd.PersistentFlags().StringVarP(&wrapper, "wrapper", "w", "wrapper.html", "The location of the wrapper.html")
-	buildCmd.PersistentFlags().StringVarP(&macros, "macros-folder", "m", "macros", "The folder with the macros in it.")
-	buildCmd.PersistentFlags().StringVarP(&templates, "templates-folder", "t", "html-templates", "The folder with the templates in it.")
+	buildCmd.PersistentFlags().StringVarP(&name, "name", "n", "theme", "The name of the theme. Will be used as the filename.")
+	buildCmd.PersistentFlags().StringVarP(&stylesheet, "stylesheet", "s", "assets/stylesheet.css", "The path to the stylesheet.")
+	buildCmd.PersistentFlags().StringVarP(&wrapper, "wrapper", "w", "wrapper.html", "The path to the wrapper.html.")
+	buildCmd.PersistentFlags().StringVarP(&macros, "macros-folder", "m", "macros", "The name of the folder with the macros in it.")
+	buildCmd.PersistentFlags().StringVarP(&templates, "templates-folder", "t", "html-templates", "The name of the folder with the templates in it.")
+	buildCmd.PersistentFlags().StringVarP(&rootDir, "directory", "d", "./", "Where to run cybertron. Defaults to current directory.")
+	buildCmd.PersistentFlags().StringVarP(&outputDir, "output-directory", "o", "./", "Directory to output the theme xml file to.")
 
 	rootCmd.AddCommand(readCmd)
 	readCmd.PersistentFlags().StringVarP(&inputFile, "input-file", "f", "", "The file to input")
 
 	klog.InitFlags(nil)
-	flag.Parse()
-	pflag.CommandLine.AddGoFlagSet(flag.CommandLine)
+	pflag.CommandLine.AddGoFlag(flag.CommandLine.Lookup("v"))
 }
 
 var rootCmd = &cobra.Command{
@@ -59,17 +62,24 @@ var buildCmd = &cobra.Command{
 	Long:  `Builds a jcink xml theme from a set of files`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		output, err := theme.Construct(name, stylesheet, wrapper, macros, templates)
+		config := theme.Config{
+			Name:           name,
+			StylesSheet:    stylesheet,
+			Wrapper:        wrapper,
+			MacroFolder:    macros,
+			TemplateFolder: templates,
+			RootDir:        rootDir,
+		}
+		output, err := config.Construct()
 		if err != nil {
-			klog.Error(err)
-			os.Exit(1)
+			klog.Fatal(err)
 		}
 		if output == nil {
-			fmt.Println("got a nil return. something has gone very wrong.")
+			klog.Fatal("got a nil return. something has gone very wrong.")
 			os.Exit(1)
 		}
 
-		outputFile := fmt.Sprintf("%s.xml", name)
+		outputFile := fmt.Sprintf("%s/%s.xml", outputDir, name)
 		f, err := os.Create(outputFile)
 		if err != nil {
 			klog.Fatal(err)
