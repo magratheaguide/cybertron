@@ -1,816 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<skin>
 		<skinname>theme</skinname>
-		<date>Wednesday 25 of Aug 2021 20:40:40 PM</date>
+		<date>Wednesday 25 of Aug 2021 20:52:09 PM</date>
 		<stylesheet>
-/*=============================================== *
- * Jcink.com Forum Hosting Stylesheet
- * ==============================================
- * #Version:	1.0.0
- *=============================================== */
-
- html { overflow-x: auto; } 
- form { display:inline; }
- 
- /****************************************
-  Body Background & Text Style
- *****************************************/
- 
- body { 
-     font-family: Arial, sans-serif; 
-     font-size: 12px; 
-     color: #222; margin:0px;
-     padding:0px; 
-         background-color:#E1E1E1; 
-     text-align:center;
- }
- 
- /****************************************
-    Table Styles
- *****************************************/
- 
- table, tr, td {
-     font-family: Arial, sans-serif; 
-     font-size: 12px; 
-     color: #222; 
- }
- 
- /****************************************
-    Board Width
- *****************************************/
- 
- #wrapper { 
-     text-align:left;
-         width:980px;
-         margin: 20px auto 30px;
-         background: #fbfbfb;
-         box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-         padding-bottom: 5px;
- }
- 
- #innerwrapper { 
-     padding: 0 10px;
- }
- 
- /****************************************
-    Link colors
- *****************************************/
- 
- a:link, a:visited, a:active { 
-     text-decoration: underline;
-     color: #800000; 
- }
- a:hover { 
-     color: gray; 
-     text-decoration: none; 
- }
- 
- 
- /****************************************
-    Profile styles 
- *****************************************/
- 
- #profilename { 
-     font-size:28px;
-     font-weight:bold; 
- }
- 
- #photowrap { 
-     padding:6px; 
- }
- 
- #phototitle { 
-     font-size:24px; 
-     border-bottom:1px solid black;
- }
- 
- #photoimg   { 
-     text-align:center; margin-top:15px; 
- } 
- 
- /****************************************
-    UserCP/My Controls styles
- *****************************************/
- 
- #ucpmenu { 
-     line-height:150%;
-     width:22%; 
-     border:1px solid #555;
-     background-color: #EFEFEF;
- }
- 
- #ucpmenu p  { 
-     padding:2px 5px 6px 9px; 
-     margin:0px;  
- }
- 
- #ucpcontent { 
-     background-color: #EFEFEF; 
-     border:1px solid #545454;
-     line-height:150%; width:auto; 
- }
- 
- #ucpcontent p  { 
-     padding:10px;
-     margin:0px; 
- }
- 
- /****************************************
-   Logo Strip
- *****************************************/
- 
- #logostrip { 
-     display: none;
- }
- 
- #logo { 
-     min-height: 60px; 
-     text-align: left; 
-     margin-top: 5px; 
-     padding: 20px 20px 5px; 
- }
- 
- 
- #logo a, #logo a:hover { 
-     font-size: 36px; 
-     text-decoration: none;
-     font-weight: bold; 
-     color: #800000; 
- }
- 
- /****************************************
-   Search Bar 
- *****************************************/
- 
- #searchbar {
-     display: block;	
-     float: right;
-     position: relative;
-     right: 10px;
-     top: 8px;
- }
- 
- #searchbar .search-container {
-     background-color: #FFFFFF;
-     box-shadow: 0 1px 3px rgba(0,0,0,0.4) inset;
-     border: 1px solid #D8D8D8;
-     display: block;
-     height: 26px;
-     position: relative;
-     width: 200px;
- }
- 
- #searchbar .search-input {
-     background: none repeat scroll 0 0 transparent;
-     border: 0;
-     color: #808080;
-     font-size: 12px;
-     width: 192px;
-     height: 26px;
-     font-family: Arial, sans-serif;
-     padding: 1px 0 0 8px;
- }
- 
- #searchbar .search-input:focus {
-     color: #000000;
- }
- 
- #searchbar .search-button {
-     background: #800000 url(http://files.b1.jcink.com/themes/default/magnifying-glass.png) no-repeat 50% 50%;
-     border: 0;
-     bottom: 0;
-     margin: 0;
-     border-radius: 0;
-     display: block;
-     height: 26px;
-     padding: 0;
-     position: absolute;
-     right: 0;
-     text-indent: -3000em;
-     top: 0;
-     width: 26px;
-     cursor: pointer;
-     box-shadow: none;
- }
- 
- /****************************************
-   Navigation Bar / Submenu
- *****************************************/
- 
- #submenu  {
-     font-size: 13px;
-     border: solid #555;
-         border-width: 1px 0;
-     background-color: #800000;
-         background-image: url(http://files.b1.jcink.com/themes/default/red-gradient-glass.png);
-         background-position: center center;
-         margin-bottom: 3px;
- }
- 
- #submenu img { 
-     display: none; 
- }
- 
- #submenu a:link, #submenu a:visited, #submenu a:active { 
-     text-decoration: none;
-     color: #fff !important; 
-         padding: 7px 7px;
-         font-weight: bold;
- }
- 
- #submenu a:hover { 
-     color: #fff !important; 
-     text-decoration: underline; 
- }
- 
- #navi br { 
-     display: none; 
- }
- 
- #navstrip  { 
-     font-weight:bold;
-     padding:6px 0px 16px 0px; 
- }
- 
- /****************************************
-    Calendar styling
- *****************************************/
- 
- .caldate   { 
-     text-align:right;
-     font-weight:bold;
-     font-size:11px;
-     color:#555;
-     background-color:#F2F2F2;
-     padding:4px; margin:0px; 
- }
- 
- #calendarname { 
-     font-size:22px;
-     font-weight:bold; 
- }
- 
- #padandcenter { 
-     margin-left:auto;
-     margin-right:auto;
-     text-align:center;
-     padding:14px 0px 14px 0px; 
- }
- 
- 
- /**************************************************
-  User Links Menu (Messages / View new posts / etc )
- ***************************************************/
- 
- #userlinks { 
-     border: 1px solid #545454; 
-     background-color: #F2F2F2; 
-     list-style: none; 
-     width: 960px; 
-     margin: 0 auto; 
-     background-image:url(http://files.b1.jcink.com/themes/default/white-gradient.png); 
- }
- 
- #userlinks td { 
-     color: #333; 
- }
- 
- #userlinks a { 
-     text-decoration: underline; padding: 1px; 
- }
- 
- #userlinks a:hover { 
-     text-decoration: none; 
- }
- 
- 
- /****************************************
-    Topic View styles
- *****************************************/
- 
- .activeuserstrip { 
-     background-color: #D6D6D6;padding:6px 
- }
- 
- .normalname { 
-     font-size: 12px; 
-     font-weight: bold; 
-     color: #003; 
- }
- 
- .normalname a { 
-     font-size: 12px;
- }
- 
- .unreg { 
-     font-size: 11px; 
-     font-weight: bold; 
-     color: #900; 
- }
- 
- .post1 { 
-     background-color: #F2F2F2; 
- }
- 
- .post2 { 
-     background-color: #F2F2F2; 
- }
- 
- .postdetails { 
-     font-size: 10px; 
- }
- 
- .postcolor   { 
-     font-size: 12px; line-height: 160%; 
- }
- 
- .postlinksbar {
-         padding: 1px 5px; 
-     background-color:#CCCCCC;
-     padding:1px;
-     margin-top:1px;
-     font-size:10px;
-     background-image:url(http://files.b1.jcink.com/themes/default/thin-gray-gradient.png);
- }
- 
- .signature   { 
-     font-size: 10px; 
-     color: #339; 
-     line-height:150%;  
- }
- 
- 
- /*******************************
-  Pagination e.g. [1],2,3 ...
- *******************************/
- 
- .pagination .pagination_current, .pagination a {
-      padding: 2px 5px;
- }
- 
- .pagination a:link, .pagination a:visited, .pagination a:active {
-      border: 1px solid #800000;
-      border-radius:3px;
-      background-color:#740300;
-      padding-left:6px;
-      padding-right:6px;
-      color:#ffffff;
-      text-decoration:none;
-      box-shadow: 0pt 2px 3px rgba(0, 0, 0, 0.4);
- }
- 
- .pagination a:hover {
-     background: #EFEEEE;
-     text-decoration: none;
-     color:#000000;
-     box-shadow: 0pt 2px 3px rgba(0, 0, 0, 0.4);
-     background-image:url(http://files.b1.jcink.com/themes/default/gray-gradient.png); 
- }
- 
- .pagination .pagination_current {
-      background: none repeat scroll 0% 0% #FFFFFF;
-      border: 1px solid #545454;
-      border-radius:3px;
-      padding-left:6px;
-      padding-right:6px;
-      background-image:url(http://files.b1.jcink.com/themes/default/gray-gradient.png); 
- }
- 
- .pagination_first, .pagination_last, .pagination_page {
-      background: none repeat scroll 0% 0% #740300;
-      border: 1px solid #800000;
- }
- 
- .pagination_pagetxt {
-     display:none;
- }
- 
- /****************************************
-    Global general table/div row styles
- *****************************************/
- 
- .row1,.row3,.row4,.row2 { 
-     background-color: #EFEFEF;
-     padding: 5px;
- }
- 
- #boardstats .row2 { 
-     text-align: center; 
- }
- 
- .darkrow1 { 
-     background-color: #D6D6D6; color:black; 
- }
- 
- .darkrow2 { 
-     background-color: #D6D6D6; color:black; 
- }
- 
- td.darkrow2 { 
-     display: none; 
- }
- 
- .darkrow3 { 
-     background-color: #D6D6D6; 
-     color: #000; 
-     padding: 3px; 
- }
- 
- .hlight { background-color: #EFEFEF; }
- .dlight { background-color: #EFEFEF; }
- 
- /****************************************
-    Top table bars / gradient holders 
- *****************************************/
- 
- .maintitle { 
-     background-color: #800000;
-     background-image: url(http://files.b1.jcink.com/themes/default/red-gradient-glass.png);
-     font-weight: bold; 
-     padding: 8px; 
-     color: #FFF;
- }
- 
- .maintitle a:link, .maintitle  a:visited, .maintitle  a:active { 
-     text-decoration: none; color: #FFF !important; 
- }
- 
- .maintitle a:hover { 
-     text-decoration: underline;  
- }
- 
- /****************************************
-   Bar directly below the maintitles 
- *****************************************/
- 
- .titlemedium { 
-     font-weight:bold; color:#222; 
-     padding: 2px 6px; margin:0px;
-     background-color:#D8D8D8;
-         background-image: url(http://files.b1.jcink.com/themes/default/gray-gradient.png);
-  }
- 
- .titlemedium  a:link, .titlemedium  a:visited, .titlemedium  a:active  { 
-     text-decoration: underline; 
-     color: #222; 
- }
- 
- /****************************************
-   Table & Div Borders 
- *****************************************/
- 
- .tableborder { 
-     background-color: #C0C0C0; 
-     border:1px solid #555; padding:0px; margin:0; 
- }
- 
- .tablefill { 
-     background-color: #EFEFEF;
-     border:1px solid #555; 
-     padding:6px; 
- }
- 
- .tablepad {
-     background-color: #EFEFEF; 
-     padding:6px;
- }
- 
- .tablebasic {
-     width:100%; padding:0; margin:0px; border:0px; 
- }
- 
- .plainborder { 
-     border:1px solid #555; 
-     background-color: #EFEFEF; 
- }
- 
- /****************************************
-   QUOTE and CODE BBCode boxes
- *****************************************/
- 
- #QUOTE { 
-     white-space:normal; 
-     font-family: Arial, sans-serif; 
-     font-size: 11px; 
-     color: #333; 
-     background-color: #EFEFEF; 
-     border: 0px; 
-     padding:2px;
-     border:1px solid #555; 
-     margin-top:2px; 
- }
- 
- #CODE  { 
-     white-space:normal; 
-     font-family: Courier, Courier New, Verdana, Arial;  
-     font-size: 11px; 
-     color: #333; 
-     background-color: #EFEFEF; 
-     border: 0px; 
-     padding:2px;
-     border:1px solid #555; 
-     margin-top:2px; 
- }
- 
- 
- /**********************************************
-   Input buttons, e.g. submit, text input, etc
- ***********************************************/
- 
- .button-large {
-     background: #800000 url(http://files.b1.jcink.com/themes/default/red-gradient.png);  
-     border-radius: 3px;
-         padding: 5px 12px;
-     text-align:center;
-     margin:0px 5px 0px 5px;
-     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-         color: #FFFFFF;
-     font-weight: bold;
-         min-width: 75px;
-         display: inline-block;
- }
- 
- 
- .button-small {
-     background: #800000 url(http://files.b1.jcink.com/themes/default/red-gradient.png);
-     border-radius:3px;
-     color: #FFFFFF;
-     font-weight: bold;
-     font-size: 11px;
-     margin: 3px;
-     padding: 4px 7px;
-     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-     text-decoration: none;
-         min-width: 50px;
-         max-width: 80px;
- }
- 
- .post-buttons-top { margin-top: 3px; }
- 
- .button-large.closed {
-     background: url(http://files.b1.jcink.com/themes/default/white-gradient.png);
-         padding: 7px 12px;
-     text-align:center;
-     margin:0px 5px 0px 5px;
-         border: 1px solid #d8d8d8;
-         color: #660000; 
-     font-weight: bold;
- }
- 
- .forminput, .codebuttons, .textinput, .radiobutton, .checkbox {
-     border-radius: 2px;
-     background: #FFF; border: 1px solid #545454;
-     color: #000;
-     font-family: Arial, sans-serif;
-     font-size: 12px;
-     padding: 2px;
-     vertical-align: middle;
-     box-shadow: 0 1px 3px rgba(0,0,0,0.4) inset;
- }
- 
- 
- input[type=submit], input[type=button], input[type=reset] {
-     background: #800000 url(http://files.b1.jcink.com/themes/default/red-gradient.png);
-     border-radius:3px;
-     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-     color: #FFFFFF;
-     font-size: 11px;
-     font-weight: bold;
-     margin: 3px;
-     padding: 2px 6px;
-     text-decoration: none;
-     border: none; 
- }
- 
- .codebuttons  { 
-     font-size: 10px; 
- }
- 
- 
- /****************************************
-   Form table cell styles, left/right/top
- *****************************************/
- 
- .pformstrip {
-     background-image:url(http://files.b1.jcink.com/themes/default/gray-gradient.png); 
-     background-color: #D6D6D6; 
-     color:black; font-weight:bold;
-     padding: 2px 5px;
-     margin-top:1px 
- }
- 
- .pformleft  { 
-     background-color: #EFEFEF; 
-     padding:6px; 
-     margin-top:1px;width:25%; 
-     border-top:1px solid #545454; 
-     border-right:1px solid #545454; 
- }
- 
- .pformleftw { 
-     background-color: #EFEFEF; padding:6px; 
-     margin-top:1px;width:40%; 
-     border-top:1px solid #232323; 
-     border-right:1px solid #232323; 
- }
- 
- .pformright { 
-     background-color: #EFEFEF; 
-     padding:6px; margin-top:1px;
-     border-top:1px solid #232323; 
- }
- 
- 
- /****************************************
-  Tabs on the portal profiles + sections
- *****************************************/
- 
- .opentab {
-     color: #FFF;
-     padding:8px;float: left; width: auto;
-     background-color: #800000;
-         background-image: url(http://files.b1.jcink.com/themes/default/red-gradient.png);
-     margin-top:3px;
-     margin-right:2px;
-     font-size:11px;
-     border: #545454 1px solid;	
- }
- 
- .closedtab {
-     color: #FFF;
-     padding:7px;float: left;width: auto;
-     background-color: #800000;
-         background-image: url(http://files.b1.jcink.com/themes/default/red-gradient.png);
-     margin-top:6px;
-     margin-right:2px;
-     font-size:11px;
-     border-top:   #545454 1px solid;
-     border-right: #545454 1px solid;
-     border-left:  #545454 1px solid;
- }
- 
- .positiontab { 
-     height: 34px; margin-left: 2px;
- }
- 
- /****************************************
-    Delete all cookies / mark read
- *****************************************/
- 
- #delcookiesrow, #mark-as-read-subto {
-     background-color: #EFEFEF;
-     border: 1px solid #545454;
-     font-size: 10px;
-     padding: 5px;
-         width: 260px;
-         float: right;
-         margin-top:-3px;
-         padding-left:1px;
- }
- 
- #mark-as-read-subto {
-     float: none;
-     padding-top: 3px;
- }
- 
- 
- /*******************************
-      Board Statistics Links
- *******************************/
- 
- .toplinks a {
-     color: #ffffff;
-     font-size: 11px;
-     text-decoration: none;
- }
- 
- .toplinks {
-     margin: 0 11px -37px 0;
-     text-align: right;
-     color: transparent;
- }
- 
- /*******************************
-  Mini Profile Seperators
- *******************************/
- 
- .postbit { 
-     border-bottom: solid 1px #C0C0C0; 
-     color: black;
-     background: #EFEFEF;
-     font-size: 11px;
-         padding: 6px 7px;
- }
- 
- /********************************
-     Miscellaneous
- ********************************/
- 
- /* image tag styles */
- img        { vertical-align:middle; border:0px }
- img.attach { border:2px outset #555;padding:2px }
- 
- /* Forum Descriptions */
- .desc { font-size:11px; color: #000; }
- 
- /* Edited by text */
- .edit { font-size: 9px }
- 
- /* Topic Macros */
- 
- .wrapmini { float: left; }
- 
- /* Warning CSS */
- .warngood { color:green }
- .warnbad  { color:red }
- 
- /* Skin selector dropdown */
- #skin_selector { 
-     margin: 10px 0; 
- }
- 
- 
- /* Online users list row */
- .thin { 
-     padding:6px 0px 6px 0px;
-     line-height:140%;
-     margin:2px 0px 2px 0px;
-     border-top:1px solid #545454;
-     border-bottom:1px solid #545454;
- }
- 
- /* Latest news area */
- .newstext { 
-     background-color: #EFEFEF; 
-     border: 1px solid #555; 
-     padding: 6px 6px 2px 6px; 
-     margin-bottom: 10px; 
- }
- 
- /* Highlighted text in search */
- .searchlite { 
-     color:#F00;
-     font-weight:bold;  
-     background-color:#FF0; 
- }
- 
- /****************************************
-  Mobile-specific Styles
- *****************************************/
- 
- #mobile { 
-     background-color: #FBFBFB;
- }
- 
- /***********************************
-  Copyright: Removal is against Terms
- ************************************/
- 
- .copyright { 
-     font-size: 10px; line-height: 12px; 
- }
+/* THIS IS A TEST CSS FILE */
 .post1 {} /* this is required to pass JCINK upload validation */
 </stylesheet>
-		<wrappers>
-<!DOCTYPE html>
+		<wrappers><!DOCTYPE html>
 <html>
-    <head> 
-	<title><% TITLE %></title> 
-	<% CSS %> 
-	<% JAVASCRIPT %> 
-    </head> 
-    <body>
-	<div id="wrapper">
-	    <div id="logo">
-		<a href="index.php"><{LOGO}></a>
-		<div id="searchbar">
-		    <div class="search-container">
-			<form action="index.php?act=Search&amp;CODE=01" method="post">
-				<input type="hidden" name="forums" value="all">
-				<input type="text" name="keywords" class="search-input" onfocus="this.value=''" value="Search...">
-				<input type="submit" class="search-button">
-		        </form>
-		    </div>
-		</div>
-	    </div>
-	    <% BOARD HEADER %>
-	    <div id="innerwrapper"> 
-	    	<div id="navi">
-		    <% NAVIGATION %>
-	    	</div>
-	    	<% DSHOUTBOX %> 
-	    	<% BOARD %> 
-	    	<div id="skin_selector">
-	    	    <% SKIN_SELECTOR %>
-	    	</div>
-	    	<% COPYRIGHT %>
-	    	<script>$('#logo a img[src="style_images/1/spacer.gif"]').replaceWith('<!-- |board_name| -->');</script>
-	    </div>
-	</div>
-    </body> 
+  <head>
+    <title><% TITLE %></title>
+    <% CSS %> <% JAVASCRIPT %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="logo">
+        <a href="index.php"><{LOGO}></a>
+        <div id="searchbar">
+          <div class="search-container">
+            <form action="index.php?act=Search&amp;CODE=01" method="post">
+              <input type="hidden" name="forums" value="all" />
+              <input
+                type="text"
+                name="keywords"
+                class="search-input"
+                onfocus="this.value=''"
+                value="Search..."
+              />
+              <input type="submit" class="search-button" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <% BOARD HEADER %>
+      <div id="innerwrapper">
+        <div id="navi"><% NAVIGATION %></div>
+        <% DSHOUTBOX %> <% BOARD %>
+        <div id="skin_selector"><% SKIN_SELECTOR %></div>
+        <% COPYRIGHT %>
+        <script>
+          $('#logo a img[src="style_images/1/spacer.gif"]').replaceWith(
+            "<!-- |board_name| -->"
+          );
+        </script>
+      </div>
+    </div>
+  </body>
 </html></wrappers>
 		<macros>
 			<item name='AVATAR_URL'>https://source.usnplash.com/random/500x800</item>
+			<item name='F_NAV'><!-- F_NAV macro left intentionally blank --></item>
 			<item name='A_LOCKED_B'><div class='button-large closed'>Closed</div></item></item>
 			<item name='A_MOVED_B'><div class='button-large closed'>Moved</div></item></item>
 			<item name='A_POLLONLY_B'><div class='button-large closed'>Closed</div></item></item>
@@ -842,7 +81,6 @@
 			<item name='C_ON_RES'><img alt="New Posts" title="New Posts" src="//files.jcink.net/themes/default/red-cube-large.png" /></item></item>
 			<item name='F_ACTIVE'><img alt="Users" title="Users" src="//files.jcink.net/themes/default/active-users.png" /></item></item>
 			<item name='F_NAV_SEP'>&nbsp;&rarr;&nbsp;</item></item>
-			<item name='F_NAV'> &raquo; </item></item>
 			<item name='F_STATS'><img alt="Statistics" title="Statistics" src="//files.jcink.net/themes/default/statistics.png" /></item></item>
 			<item name='NO_PHOTO'><img src='//files.jcink.net/themes/default/active-users.png'></item></item>
 			<item name='CAMERA'>View</item></item>
@@ -885,23 +123,29 @@
 		<templates>
 			<item name='cat_head'><div class="tableborder category" id="cat-<!-- |cat_id| -->">
   <div class='maintitle<!-- |collapsed_class| -->' align='left'>
-<span style='float:right;'><a href='#' onclick='catcollapse("<!-- |cat_id| -->");return false;' id='main_<!-- |cat_id| -->'><!-- |collapse_img| --></a>&nbsp;&nbsp;</span>
-<{CAT_IMG}><a href="index.php?c=<!-- |cat_id| -->"><!-- |cat_name| --></a></div>
-<div id='cat_<!-- |cat_id| -->' style="<!-- |collapsed_style| -->">
-      <table width="100%" border="0" cellspacing="1" cellpadding="4">
-        <tr class='forum-subheader'>
-          <th align="center" width="2%" class='titlemedium'></th>
-          <th align="left" width="59%" class='titlemedium'>Forum</th>
-          <th align="center" width="7%" class='titlemedium'>Topics</th>
-          <th align="center" width="7%" class='titlemedium'>Replies</th>
-          <th align="left" width="25%" class='titlemedium'>Last Post Info</th>
-        </tr>
-	<% FORUM_ROWS %>
-	<tr> 
+    <span style='float:right;'><a href='#' onclick='catcollapse("<!-- |cat_id| -->");return false;'
+        id='main_<!-- |cat_id| -->'>
+        <!-- |collapse_img| -->
+      </a>&nbsp;&nbsp;</span>
+    <{CAT_IMG}><a href="index.php?c=<!-- |cat_id| -->">
+        <!-- |cat_name| -->
+      </a>
+  </div>
+  <div id='cat_<!-- |cat_id| -->' style="<!-- |collapsed_style| -->">
+    <table width="100%" border="0" cellspacing="1" cellpadding="4">
+      <tr class='forum-subheader'>
+        <th align="center" width="2%" class='titlemedium'></th>
+        <th align="left" width="59%" class='titlemedium'>Forum</th>
+        <th align="center" width="7%" class='titlemedium'>Topics</th>
+        <th align="center" width="7%" class='titlemedium'>Replies</th>
+        <th align="left" width="25%" class='titlemedium'>Last Post Info</th>
+      </tr>
+      <% FORUM_ROWS %>
+        <tr>
           <td class='darkrow2' colspan="5">&nbsp;</td>
         </tr>
-      </table>
-</div>
+    </table>
+  </div>
 </div>
 <br class='cat-lb' /></item>
 		</templates>

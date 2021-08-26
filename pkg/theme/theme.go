@@ -163,7 +163,9 @@ func (c Config) getFileString(filename string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return string(data), nil
+	retString := string(data)
+	klog.V(10).Infof("%s:\n%s", filename, retString)
+	return retString, nil
 }
 
 // listDirectory lists all of the files in a directory
