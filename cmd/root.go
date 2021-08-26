@@ -27,11 +27,11 @@ var (
 
 func init() {
 	rootCmd.AddCommand(buildCmd)
-	buildCmd.PersistentFlags().StringVarP(&name, "name", "n", "theme", "The name of the theme")
-	buildCmd.PersistentFlags().StringVarP(&stylesheet, "stylesheet", "s", "assets/stylesheet.css", "The location of the stylesheet")
-	buildCmd.PersistentFlags().StringVarP(&wrapper, "wrapper", "w", "wrapper.html", "The location of the wrapper.html")
-	buildCmd.PersistentFlags().StringVarP(&macros, "macros-folder", "m", "macros", "The folder with the macros in it.")
-	buildCmd.PersistentFlags().StringVarP(&templates, "templates-folder", "t", "html-templates", "The folder with the templates in it.")
+	buildCmd.PersistentFlags().StringVarP(&name, "name", "n", "theme", "The name of the theme. Will be used as the filename.")
+	buildCmd.PersistentFlags().StringVarP(&stylesheet, "stylesheet", "s", "assets/stylesheet.css", "The path to the stylesheet.")
+	buildCmd.PersistentFlags().StringVarP(&wrapper, "wrapper", "w", "wrapper.html", "The path to the wrapper.html.")
+	buildCmd.PersistentFlags().StringVarP(&macros, "macros-folder", "m", "macros", "The name of the folder with the macros in it.")
+	buildCmd.PersistentFlags().StringVarP(&templates, "templates-folder", "t", "html-templates", "The name of the folder with the templates in it.")
 	buildCmd.PersistentFlags().StringVarP(&rootDir, "directory", "d", "./", "Where to run cybertron. Defaults to current directory.")
 	buildCmd.PersistentFlags().StringVarP(&outputDir, "output-directory", "o", "./", "Directory to output the theme xml file to.")
 
