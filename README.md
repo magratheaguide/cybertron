@@ -58,7 +58,16 @@ This will output the `MyTheme.xml` file that can be uploaded as a full Jcink "sk
 
 You can find the latest release [on the releases page](https://github.com/rp-magrathea/cybertron/releases/latest)
 
-Download the latest binary for Darwin. Move that to somewhere in in your PATH. Likely `/usr/local/bin` is a safe choice.
+1. Download the latest binary for Darwin
+1. Rename to `cybertron`
+1. Move that to somewhere in in your PATH. Likely `/usr/local/bin` is a safe choice
+1. Add execute permissions via `chmod +x /usr/local/bin/cybertron`
+
+If you get a security error trying to run Cybertron:
+
+1. Go to your "Security and Privacy" settings
+1. Choose the "General" tab
+1. Where it mentions that Cybertron was blocked, click the "Open Anyway" button
 
 ### Windows
 
