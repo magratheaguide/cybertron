@@ -159,8 +159,7 @@ func getPlainFilename(fullname string) string {
 
 // GetFileString reads a file into a string
 func (c Config) getFileString(filename string) (string, error) {
-	file := filepath.Join(c.RootDir, filename)
-	data, err := ioutil.ReadFile(file)
+	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return "", err
 	}
@@ -179,8 +178,8 @@ func (c Config) listDirectory(dir string) ([]string, error) {
 			return nil
 		}
 		if !info.IsDir() {
-			klog.V(8).Infof("found files: %v", files)
 			files = append(files, path)
+			klog.V(8).Infof("found files: %v", files)
 		}
 
 		return nil
