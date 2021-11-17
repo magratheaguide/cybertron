@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/rp-magrathea/cybertron/cmd"
+	"github.com/magratheaguide/cybertron/cmd"
 )
 
 var (

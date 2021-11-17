@@ -60,7 +60,7 @@ This will output the `MyTheme.xml` file that can be uploaded as a full Jcink "sk
 
 ### OSX
 
-You can find the latest release [on the releases page](https://github.com/rp-magrathea/cybertron/releases/latest)
+You can find the latest release [on the releases page](https://github.com/magratheaguide/cybertron/releases/latest)
 
 1. Download the latest binary for Darwin
 1. Rename to `cybertron`
@@ -75,4 +75,4 @@ If you get a security error trying to run Cybertron:
 
 ### Windows
 
-Download the latest .exe file from the [releases page](https://github.com/rp-magrathea/cybertron/releases/latest). Run it from there and use the `-d` and `-o` flags.
+Download the latest .exe file from the [releases page](https://github.com/magratheaguide/cybertron/releases/latest). Run it from there and use the `-d` and `-o` flags.
