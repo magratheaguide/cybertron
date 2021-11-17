@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/pflag"
 	"k8s.io/klog"
 
-	"github.com/rp-magrathea/cybertron/pkg/theme"
+	"github.com/magratheaguide/cybertron/pkg/theme"
 )
 
 var (

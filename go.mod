@@ -1,4 +1,4 @@
-module github.com/rp-magrathea/cybertron
+module github.com/magratheaguide/cybertron
 
 go 1.16
 
